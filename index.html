@@ -1,424 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Batbaina Guikoura | Data Scientist & Computer Scientist</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="static/css/styles.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Batbaina Guikoura — Data Scientist & AI Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="static/css/styles.css" />
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">Batbaina Guikoura</div>
-            <div class="nav-content">
-                <ul class="nav-links">
-                    <li><a href="#home" data-en="Home" data-fr="Accueil">Home</a></li>
-                    <li><a href="#about" data-en="About" data-fr="À propos">About</a></li>
-                    <li><a href="#skills" data-en="Skills" data-fr="Compétences">Skills</a></li>
-                    <li><a href="#education" data-en="Education" data-fr="Formation">Education</a></li>
-                    <li><a href="#projects" data-en="Projects" data-fr="Projets">Projects</a></li>
-                    <li><a href="#contact" data-en="Contact" data-fr="Contact">Contact</a></li>
-                </ul>
-                <div class="language-switcher">
-                    <select class="lang-select" onchange="switchLanguage(this.value)">
-                        <option value="en" selected>EN</option>
-                        <option value="fr">FR</option>
-                    </select>
-                </div>
-                <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </nav>
-    </header>
 
-    <section id="home" class="hero">
-        <div class="container hero-content">
-            <div class="profile-img">
-                <img src="static/images/batbaina.jpg" alt="Batbaina Guikoura" onerror="this.style.display='none'; this.parentElement.querySelector('i').style.display='flex';">
-                <i class="fas fa-user-graduate"></i>
-            </div>
-            <h1>Batbaina Guikoura</h1>
-            <h2 data-en="PhD Student in Robotics, AI & Precision Agriculture | Data Scientist | AI for Impact" data-fr="Doctorant en Robotique, IA & Agriculture de Précision | Data Scientist | IA pour l'Impact">PhD Student in Robotics, AI & Precision Agriculture | Data Scientist | AI for Impact</h2>
-            <p data-en="Passionate about applying machine learning, data science, and software engineering to solve real-world problems—especially those impacting Africa's development. With hands-on experience in ML algorithms, data analysis, and generative AI, I combine strong technical foundations with a commitment to innovation and community." data-fr="Passionné par l'application du machine learning, de la data science et de l'ingénierie logicielle pour résoudre des problèmes du monde réel—particulièrement ceux impactant le développement de l'Afrique. Avec une expérience pratique en algorithmes ML, analyse de données et IA générative, je combine de solides fondements techniques avec un engagement envers l'innovation et la communauté.">Passionate about applying machine learning, data science, and software engineering to solve real-world problems—especially those impacting Africa's development. With hands-on experience in ML algorithms, data analysis, and generative AI, I combine strong technical foundations with a commitment to innovation and community.</p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">
-                    <i class="fas fa-envelope"></i> <span data-en="Get In Touch" data-fr="Contactez-moi">Get In Touch</span>
-                </a>
-                <a href="#projects" class="btn">
-                    <i class="fas fa-code"></i> <span data-en="View Projects" data-fr="Voir Projets">View Projects</span>
-                </a>
-                <a href="https://github.com/batbaina" class="btn" target="_blank">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-            </div>
+  <!-- NAV -->
+  <header id="site-header">
+    <nav class="nav-inner">
+      <div class="logo">BG<span class="logo-dot">.</span></div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" data-en="About" data-fr="À propos">About</a></li>
+        <li><a href="#skills" data-en="Skills" data-fr="Compétences">Skills</a></li>
+        <li><a href="#education" data-en="Education" data-fr="Formation">Education</a></li>
+        <li><a href="#projects" data-en="Projects" data-fr="Projets">Projects</a></li>
+        <li><a href="#achievements" data-en="Awards" data-fr="Prix">Awards</a></li>
+        <li><a href="#contact" data-en="Contact" data-fr="Contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <select class="lang-select" onchange="switchLanguage(this.value)">
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+        </select>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-content">
+      <p class="hero-eyebrow" data-en="PhD Researcher · Data Scientist · AI for Africa" data-fr="Doctorant · Data Scientist · IA pour l'Afrique">PhD Researcher · Data Scientist · AI for Africa</p>
+      <h1 class="hero-name">Batbaina<br /><span class="hero-name-accent">Guikoura</span></h1>
+      <p class="hero-bio" data-en="Building intelligent systems at the intersection of robotics, AI, and precision agriculture — for a more sustainable and equitable world." data-fr="Construire des systèmes intelligents à l'intersection de la robotique, de l'IA et de l'agriculture de précision — pour un monde plus durable et équitable.">Building intelligent systems at the intersection of robotics, AI, and precision agriculture — for a more sustainable and equitable world.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary"><span data-en="Let's Connect" data-fr="Contactez-moi">Let's Connect</span></a>
+        <a href="#projects" class="btn btn-ghost"><span data-en="View Work" data-fr="Voir Projets">View Work</span></a>
+        <a href="https://github.com/batbaina" class="btn btn-icon" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/batbaina-guikoura" class="btn btn-icon" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-n">3+</span><span class="stat-l" data-en="Years Research" data-fr="Années Recherche">Years Research</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><span class="stat-n">5+</span><span class="stat-l" data-en="ML Projects" data-fr="Projets ML">ML Projects</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><span class="stat-n">2</span><span class="stat-l" data-en="Master's Degrees" data-fr="Masters">Master's Degrees</span></div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-col reveal">
+          <div class="about-img-frame">
+            <img src="static/images/batbaina.jpg" alt="Batbaina Guikoura" onerror="this.parentElement.classList.add('no-photo')">
+            <div class="photo-fallback"><i class="fas fa-user-graduate"></i></div>
+            <div class="img-accent-border"></div>
+          </div>
+          <div class="about-tag-stack">
+            <span class="tag-pill"><i class="fas fa-map-marker-alt"></i> Rabat, Morocco</span>
+            <span class="tag-pill"><i class="fas fa-graduation-cap"></i> UM6P PhD 2025–</span>
+            <span class="tag-pill"><i class="fas fa-globe-africa"></i> Impact in Africa</span>
+          </div>
         </div>
-    </section>
-
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in" data-en="About Me" data-fr="À propos de moi">About Me</h2>
-            <div class="fade-in" style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8;">
-                <p data-en="I'm a dedicated Computer Scientist and Data Scientist currently pursuing a PhD in Robotics, AI & Precision Agriculture at Mohammed VI Polytechnic University (UM6P), Rabat, Morocco. I hold a Master's in Applied Mathematics (Data Science) from AIMS Cameroon and a Master's in Computer Science from the University of Ngaoundéré. I'm passionate about leveraging technology for positive social impact across Africa." data-fr="Je suis un informaticien et data scientist dévoué, actuellement en doctorat en Robotique, IA & Agriculture de Précision à l'Université Mohammed VI Polytechnique (UM6P), Rabat, Maroc. Je suis titulaire d'un Master en Mathématiques Appliquées (Data Science) de l'AIMS Cameroun et d'un Master en Informatique de l'Université de Ngaoundéré. Je suis passionné par l'utilisation de la technologie pour un impact social positif en Afrique.">I'm a dedicated Computer Scientist and Data Scientist currently pursuing a <strong>PhD in Robotics, AI & Precision Agriculture</strong> at Mohammed VI Polytechnic University (UM6P), Rabat, Morocco. I hold a Master's in Applied Mathematics (Data Science) from AIMS Cameroon and a Master's in Computer Science from the University of Ngaoundéré. I'm passionate about leveraging technology for positive social impact across Africa.</p>
-                <br>
-                <p data-en="I combine academic excellence with practical innovation. I'm also promoting Numerica Bridge - a startup that accompanies individuals and companies in their digitalization process." data-fr="Je combine l'excellence académique avec l'innovation pratique. Je promeut aussi Numerica Bridge - une startup qui accompagne les individus et entreprises dans leur processus de digitalisation.">I combine academic excellence with practical innovation. I'm also promoting <strong>Numerica Bridge</strong> - a startup that accompanies individuals and companies in their digitalization process.</p>
-                <br>
-                <p data-en="Previously worked as an ICT Technology Development Intern at IFAD, focusing on automatic generation, feature extraction using LLMs and Agentic AI systems." data-fr="J'ai précédemment travaillé comme stagiaire en Développement Technologique TIC à l'IFAD, me concentrant sur la génération automatique, l'extraction de caractéristiques avec les LLM et les systèmes d'IA agentique.">Previously worked as an ICT Technology Development Intern at IFAD, focusing on automatic generation, feature extraction using LLMs, and Agentic AI systems.</p>
-            </div>
+        <div class="about-text-col reveal">
+          <p class="section-eyebrow" data-en="About Me" data-fr="À propos">About Me</p>
+          <h2 class="section-heading" data-en="Computer Scientist who believes technology should lift communities." data-fr="Informaticien qui croit que la technologie doit élever les communautés.">Computer Scientist who believes technology should lift communities.</h2>
+          <p class="body-text" data-en="I'm pursuing a PhD in Robotics, AI & Precision Agriculture at Mohammed VI Polytechnic University (UM6P), following a Master's in Applied Mathematics (Data Science) from AIMS Cameroon and a Master's in Computer Science from the University of Ngaoundéré." data-fr="Je poursuis un doctorat en Robotique, IA & Agriculture de Précision à l'Université Mohammed VI Polytechnique (UM6P), après un Master en Mathématiques Appliquées (Data Science) de l'AIMS Cameroun et un Master en Informatique de l'Université de Ngaoundéré.">I'm pursuing a PhD in Robotics, AI & Precision Agriculture at Mohammed VI Polytechnic University (UM6P), following a Master's in Applied Mathematics (Data Science) from AIMS Cameroon and a Master's in Computer Science from the University of Ngaoundéré.</p>
+          <p class="body-text" data-en="Previously an ICT Technology Development Intern at IFAD, where I worked on LLM-based feature extraction and agentic AI systems. I'm also co-founder of Numerica Bridge — a startup guiding individuals and organizations through digital transformation." data-fr="Ancien stagiaire en Développement Technologique TIC à l'IFAD, où j'ai travaillé sur l'extraction de caractéristiques par LLM et les systèmes d'IA agentique. Je suis également co-fondateur de Numerica Bridge — une startup guidant les individus et organisations dans leur transformation numérique.">Previously an ICT Technology Development Intern at IFAD, where I worked on LLM-based feature extraction and agentic AI systems. I'm also co-founder of <strong>Numerica Bridge</strong> — a startup guiding individuals and organizations through digital transformation.</p>
+          <div class="about-links">
+            <a href="https://numericabridge.com" target="_blank" class="inline-link"><i class="fas fa-external-link-alt"></i> numericabridge.com</a>
+            <a href="mailto:batbaina.guikoura@um6p.ma" class="inline-link"><i class="fas fa-envelope"></i> batbaina.guikoura@um6p.ma</a>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in" data-en="Skills & Technologies" data-fr="Compétences & Technologies">Skills & Technologies</h2>
-            <div class="skills-grid fade-in">
-                <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> <span data-en="Programming Languages" data-fr="Langages de Programmation">Programming Languages</span></h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">R</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-database"></i> <span data-en="Data Science Libraries" data-fr="Bibliothèques Data Science">Data Science Libraries</span></h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">Scikit-learn</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-tools"></i> <span data-en="Tools & Platforms" data-fr="Outils & Plateformes">Tools & Platforms</span></h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">MLflow</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Airflow</span>
-                        <span class="skill-tag">PowerBI</span>
-                        <span class="skill-tag">GitHub</span>
-                        <span class="skill-tag">Postman</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">Flask</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">ODK</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-brain"></i> <span data-en="Core Competencies" data-fr="Compétences Clés">Core Competencies</span></h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Machine Learning</span>
-                        <span class="skill-tag">Data Science</span>
-                        <span class="skill-tag" data-en="Robotics & AI" data-fr="Robotique & IA">Robotics & AI</span>
-                        <span class="skill-tag" data-en="Precision Agriculture" data-fr="Agriculture de Précision">Precision Agriculture</span>
-                        <span class="skill-tag" data-en="Optimization" data-fr="Optimisation">Optimization</span>
-                        <span class="skill-tag" data-en="Software Engineering" data-fr="Ingénierie Logicielle">Software Engineering</span>
-                        <span class="skill-tag" data-en="Generative AI" data-fr="IA Générative">Generative AI</span>
-                        <span class="skill-tag" data-en="APIs Development" data-fr="Développement API">APIs Development</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-globe"></i> <span data-en="Languages" data-fr="Langues">Languages</span></h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag" data-en="English" data-fr="Anglais">English</span>
-                        <span class="skill-tag" data-en="French" data-fr="Français">French</span>
-                    </div>
-                </div>
-            </div>
+  <!-- SKILLS -->
+  <section id="skills" class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow" data-en="Expertise" data-fr="Expertise">Expertise</p>
+        <h2 class="section-heading" data-en="Skills & Technologies" data-fr="Compétences & Technologies">Skills & Technologies</h2>
+      </div>
+      <div class="skills-bento reveal">
+        <div class="skill-block skill-block--wide">
+          <div class="skill-block-icon"><i class="fas fa-brain"></i></div>
+          <h3 data-en="Core Competencies" data-fr="Compétences Clés">Core Competencies</h3>
+          <div class="skill-chips">
+            <span>Machine Learning</span><span>Deep Learning</span><span>Generative AI</span>
+            <span data-en="Precision Agriculture" data-fr="Agriculture de Précision">Precision Agriculture</span>
+            <span>Robotics & AI</span><span>Computer Vision</span>
+            <span>Agentic AI Systems</span><span>Optimization</span>
+            <span data-en="Software Engineering" data-fr="Ingénierie Logicielle">Software Engineering</span>
+            <span>APIs Development</span>
+          </div>
         </div>
-    </section>
-
-    <section id="education" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in" data-en="Education" data-fr="Formation">Education</h2>
-            <div class="timeline fade-in">
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3 data-en="PhD in Robotics, AI & Precision Agriculture" data-fr="Doctorat en Robotique, IA & Agriculture de Précision">PhD in Robotics, AI & Precision Agriculture</h3>
-                        <h4 data-en="Mohammed VI Polytechnic University (UM6P) | Rabat, Morocco" data-fr="Université Mohammed VI Polytechnique (UM6P) | Rabat, Maroc">Mohammed VI Polytechnic University (UM6P) | Rabat, Morocco</h4>
-                        <p><strong data-en="2025 - Present" data-fr="2025 - Présent">2025 - Present</strong></p>
-                        <p data-en="Doctoral research at the intersection of robotics, artificial intelligence, and precision agriculture — developing intelligent systems for sustainable food production." data-fr="Recherche doctorale à l'intersection de la robotique, de l'intelligence artificielle et de l'agriculture de précision — développement de systèmes intelligents pour une production alimentaire durable.">Doctoral research at the intersection of robotics, artificial intelligence, and precision agriculture — developing intelligent systems for sustainable food production.</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h3 data-en="Master's in Applied Mathematics (Data Science)" data-fr="Master en Mathématiques Appliquées (Data Science)">Master's in Applied Mathematics (Data Science)</h3>
-                        <h4>AIMS Cameroon | GPA: 3.32/4</h4>
-                        <p><strong data-en="Aug 2023 - Feb 2025" data-fr="Août 2023 - Fév 2025">Aug 2023 - Feb 2025</strong></p>
-                        <p data-en="Relevant coursework: Supervised Learning Methods, Unsupervised Machine Learning, Deep Learning methods and Algorithms, Statistical inferences." data-fr="Cours pertinents: Méthodes d'apprentissage supervisé, Machine Learning non supervisé, méthodes et algorithmes de Deep Learning, inférences statistiques.">Relevant coursework: Supervised Learning Methods, Unsupervised Machine Learning, Deep Learning methods and Algorithms, Statistical inferences.</p>
-                        <p><em data-en="Mastercard Foundation Scholar" data-fr="Boursier de la Fondation Mastercard">Mastercard Foundation Scholar</em></p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3 data-en="Master's in Computer Science" data-fr="Master en Informatique">Master's in Computer Science</h3>
-                        <h4 data-en="University of Ngaoundéré | GPA: 3.18/4" data-fr="Université de Ngaoundéré | GPA: 3.18/4">University of Ngaoundéré | GPA: 3.18/4</h4>
-                        <p><strong data-en="Feb 2023" data-fr="Fév 2023">Feb 2023</strong></p>
-                        <p data-en="Relevant coursework: Network of automata, advanced algorithms and complexity, software engineering, system and network security, optimization, parallel programming." data-fr="Cours pertinents: Réseaux d'automates, algorithmes avancés et complexité, génie logiciel, sécurité des systèmes et réseaux, optimisation, programmation parallèle.">Relevant coursework: Network of automata, advanced algorithms and complexity, software engineering, system and network security, optimization, parallel programming.</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h3 data-en="Bachelor's in Computer Science and Mathematics" data-fr="Licence en Informatique et Mathématiques">Bachelor's in Computer Science and Mathematics</h3>
-                        <h4 data-en="University of Ngaoundéré | GPA: 2.67/4" data-fr="Université de Ngaoundéré | GPA: 2.67/4">University of Ngaoundéré | GPA: 2.67/4</h4>
-                        <p><strong data-en="Jun 2020" data-fr="Juin 2020">Jun 2020</strong></p>
-                        <p data-en="Relevant coursework: Theory of graphs, Algorithms I-II-III, Software engineering, Cloud computing, Linear algebra, Analysis, Probability theory." data-fr="Cours pertinents: Théorie des graphes, Algorithmes I-II-III, Génie logiciel, Cloud computing, Algèbre linéaire, Analyse, Théorie des probabilités.">Relevant coursework: Theory of graphs, Algorithms I-II-III, Software engineering, Cloud computing, Linear algebra, Analysis, Probability theory.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="skill-block">
+          <div class="skill-block-icon"><i class="fas fa-code"></i></div>
+          <h3 data-en="Languages" data-fr="Langages">Languages</h3>
+          <div class="skill-chips">
+            <span class="chip-highlight">Python</span>
+            <span>Java</span>
+            <span>R</span>
+          </div>
         </div>
-    </section>
-
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in" data-en="Projects & Research" data-fr="Projets & Recherche">Projects & Research</h2>
-            <div class="projects-grid fade-in">
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 data-en="PhD Research - Robotics, AI & Precision Agriculture" data-fr="Recherche Doctorale - Robotique, IA & Agriculture de Précision">PhD Research - Robotics, AI & Precision Agriculture</h3>
-                        <p><strong data-en="UM6P, Rabat, Morocco | 2025 - Present" data-fr="UM6P, Rabat, Maroc | 2025 - Présent">UM6P, Rabat, Morocco | 2025 - Present</strong></p>
-                    </div>
-                    <div class="project-body">
-                        <p data-en="Doctoral research at Mohammed VI Polytechnic University focusing on the intersection of robotics, artificial intelligence, and precision agriculture to develop intelligent systems for sustainable and efficient food production in Africa and beyond." data-fr="Recherche doctorale à l'Université Mohammed VI Polytechnique axée sur l'intersection de la robotique, de l'intelligence artificielle et de l'agriculture de précision pour développer des systèmes intelligents en faveur d'une production alimentaire durable et efficace en Afrique et au-delà.">Doctoral research at Mohammed VI Polytechnic University focusing on the intersection of robotics, artificial intelligence, and precision agriculture to develop intelligent systems for sustainable and efficient food production in Africa and beyond.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Robotics</span>
-                            <span class="tech-tag" data-en="Precision Agriculture" data-fr="Agriculture de Précision">Precision Agriculture</span>
-                            <span class="tech-tag">AI</span>
-                            <span class="tech-tag">Computer Vision</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 data-en="ICT Technology Development - IFAD" data-fr="Développement Technologique TIC - IFAD">ICT Technology Development - IFAD</h3>
-                        <p><strong data-en="Intern | Mar 2025 - 2025" data-fr="Stagiaire | Mars 2025 - 2025">Intern | Mar 2025 - 2025</strong></p>
-                    </div>
-                    <div class="project-body">
-                        <p data-en="Worked on cutting-edge technology development including automatic generation, feature extraction using LLMs, Agentic AI systems, and data analytics. Also involved in ICT operations, automation, and project management." data-fr="Travail sur le développement de technologies de pointe incluant la génération automatique, l'extraction de caractéristiques avec les LLM, systèmes d'IA agentique, et analyse de données. Également impliqué dans les opérations TIC, automatisation, et gestion de projet.">Worked on cutting-edge technology development including automatic generation, feature extraction using LLMs, Agentic AI systems, and data analytics. Also involved in ICT operations, automation, and project management.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">LLM</span>
-                            <span class="tech-tag" data-en="Agentic AI" data-fr="IA Agentique">Agentic AI</span>
-                            <span class="tech-tag" data-en="Data Analytics" data-fr="Analyse de Données">Data Analytics</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 data-en="Diool Transaction Analysis API" data-fr="API d'Analyse des Transactions Diool">Diool Transaction Analysis API</h3>
-                        <p><strong data-en="Data Scientist Intern | Jul 2024 - Dec 2024" data-fr="Stagiaire Data Scientist | Juil 2024 - Déc 2024">Data Scientist Intern | Jul 2024 - Dec 2024</strong></p>
-                    </div>
-                    <div class="project-body">
-                        <p data-en="Developed machine learning models to analyze user trends and patterns based on their transactions. Designed and implemented middleware RESTful APIs and built CI/CD pipelines." data-fr="Développé des modèles de machine learning pour analyser les tendances et modèles d'utilisateurs basés sur leurs transactions. Conçu et implémenté des API RESTful middleware et construit des pipelines CI/CD.">Developed machine learning models to analyze user trends and patterns based on their transactions. Designed and implemented middleware RESTful APIs and built CI/CD pipelines.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Machine Learning</span>
-                            <span class="tech-tag">RESTful API</span>
-                            <span class="tech-tag">CI/CD</span>
-                            <span class="tech-tag">Python</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 data-en="Autoencoder-based Plant Disease Detection" data-fr="Détection de Maladies Végétales par Autoencodeurs">Autoencoder-based Plant Disease Detection <a href="http://dx.doi.org/10.13140/RG.2.2.17356.94083" target="_blank"> (View)</a></h3>
-                        <p><strong data-en="Master's Thesis | Jun 2024 - Aug 2024" data-fr="Mémoire de Master | Juin 2024 - Août 2024">Master's Thesis | Jun 2024 - Aug 2024</strong></p>
-                    </div>
-                    <div class="project-body">
-                        <p data-en="Developed an Autoencoder-based model specifically designed to detect abnormal plant leaves for early agricultural diagnostics. Winner of Indaba X Chad Hackathon for Rice Disease Detection." data-fr="Développé un modèle basé sur les Autoencodeurs spécialement conçu pour détecter les feuilles végétales anormales pour les diagnostics agricoles précoces. Gagnant du Hackathon Indaba X Tchad pour la Détection des Maladies du Riz.">Developed an Autoencoder-based model specifically designed to detect abnormal plant leaves for early agricultural diagnostics. Winner of Indaba X Chad Hackathon for Rice Disease Detection.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Deep Learning</span>
-                            <span class="tech-tag" data-en="Autoencoders" data-fr="Autoencodeurs">Autoencoders</span>
-                            <span class="tech-tag">PyTorch</span>
-                            <span class="tech-tag" data-en="Computer Vision" data-fr="Vision par Ordinateur">Computer Vision</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 data-en="Optimizing Crop Rotation Profit Margin" data-fr="Optimisation de la Marge Bénéficiaire de Rotation des Cultures">Optimizing Crop Rotation Profit Margin <a href="http://dx.doi.org/10.13140/RG.2.2.28262.13129"> (View)</a></h3>
-                        <p><strong data-en="Master's Thesis | Jul 2022 - Jan 2023" data-fr="Mémoire de Master | Juil 2022 - Jan 2023">Master's Thesis | Jul 2022 - Jan 2023</strong></p>
-                    </div>
-                    <div class="project-body">
-                        <p data-en="Mathematically modeled the continuous dynamics of resources under the effect of agricultural policy and optimized resource allocation using genetic algorithms." data-fr="Modélisé mathématiquement la dynamique continue des ressources sous l'effet des politiques agricoles et optimisé l'allocation des ressources en utilisant des algorithmes génétiques.">Mathematically modeled the continuous dynamics of resources under the effect of agricultural policy and optimized resource allocation using genetic algorithms.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag" data-en="Optimization" data-fr="Optimisation">Optimization</span>
-                            <span class="tech-tag" data-en="Genetic Algorithms" data-fr="Algorithmes Génétiques">Genetic Algorithms</span>
-                            <span class="tech-tag" data-en="Mathematical Modeling" data-fr="Modélisation Mathématique">Mathematical Modeling</span>
-                            <span class="tech-tag">Python</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 data-en="Limbe Municipality App" data-fr="Application de la Municipalité de Limbé">Limbe Municipality App</h3>
-                        <p><strong data-en="Volunteer Project | 2023" data-fr="Projet Bénévole | 2023">Volunteer Project | 2023</strong></p>
-                    </div>
-                    <div class="project-body">
-                        <p data-en="Built a comprehensive application to improve public services in Cameroon, focusing on citizen engagement and service delivery optimization." data-fr="Construit une application complète pour améliorer les services publics au Cameroun, se concentrant sur l'engagement citoyen et l'optimisation de la prestation de services.">Built a comprehensive application to improve public services in Cameroon, focusing on citizen engagement and service delivery optimization.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag" data-en="Mobile Development" data-fr="Développement Mobile">Mobile Development</span>
-                            <span class="tech-tag" data-en="Public Services" data-fr="Services Publics">Public Services</span>
-                            <span class="tech-tag" data-en="Citizen Engagement" data-fr="Engagement Citoyen">Citizen Engagement</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 data-en="Numerica Bridge Startup" data-fr="Startup Numerica Bridge">Numerica Bridge Startup <a href="https://numericabridge.com"> (View)</a></h3>
-                        <p><strong data-en="Co-Founder & Promoter | Current" data-fr="Co-Fondateur & Promoteur | Actuel">Co-Founder & Promoter | Current</strong></p>
-                    </div>
-                    <div class="project-body">
-                        <p data-en="Promoting and developing Numerica Bridge, an evolving startup that accompanies and trains individuals or companies toward their digitalization process." data-fr="Promotion et développement de Numerica Bridge, une startup en évolution qui accompagne et forme les individus ou entreprises vers leur processus de digitalisation.">Promoting and developing Numerica Bridge, an evolving startup that accompanies and trains individuals or companies toward their digitalization process.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag" data-en="Digitalization" data-fr="Digitalisation">Digitalization</span>
-                            <span class="tech-tag" data-en="Training" data-fr="Formation">Training</span>
-                            <span class="tech-tag" data-en="Business Development" data-fr="Développement Commercial">Business Development</span>
-                            <span class="tech-tag" data-en="Consulting" data-fr="Conseil">Consulting</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="skill-block">
+          <div class="skill-block-icon"><i class="fas fa-layer-group"></i></div>
+          <h3 data-en="ML Libraries" data-fr="Bibliothèques ML">ML Libraries</h3>
+          <div class="skill-chips">
+            <span class="chip-highlight">PyTorch</span>
+            <span>Pandas</span>
+            <span>Scikit-learn</span>
+          </div>
         </div>
-    </section>
-
-    <section class="section" style="background: #f8f9fa;">
-        <div class="container">
-            <h2 class="section-title fade-in" data-en="Achievements & Certifications" data-fr="Réalisations & Certifications">Achievements & Certifications</h2>
-            <div class="projects-grid fade-in">
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3><i class="fas fa-trophy"></i> <span data-en="Winner - Indaba X Chad Hackathon" data-fr="Gagnant - Hackathon Indaba X Tchad">Winner - Indaba X Chad Hackathon</span></h3>
-                        <p><strong data-en="Oct 2024" data-fr="Oct 2024">Oct 2024</strong></p>
-                    </div>
-                    <div class="project-body">
-                        <p data-en="Rice Disease Detection project - 'La détection précoce de pyriculariose du riz au Tchad'" data-fr="Projet de Détection des Maladies du Riz - 'La détection précoce de pyriculariose du riz au Tchad'">Rice Disease Detection project - "La détection précoce de pyriculariose du riz au Tchad"</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3><i class="fas fa-certificate"></i> <span data-en="Postman API Fundamentals" data-fr="Fondamentaux API Postman">Postman API Fundamentals</span></h3>
-                        <p><strong data-en="Student Expert | Sept 2024" data-fr="Expert Étudiant | Sept 2024">Student Expert | Sept 2024</strong></p>
-                    </div>
-                    <div class="project-body">
-                        <p data-en="Certified expert in API development and testing using Postman tools and methodologies." data-fr="Expert certifié en développement et test d'API utilisant les outils et méthodologies Postman.">Certified expert in API development and testing using Postman tools and methodologies.</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3><i class="fas fa-satellite"></i> <span data-en="EO College Certificate" data-fr="Certificat EO College">EO College Certificate</span></h3>
-                        <p><strong data-en="ML for Earth Observation | Sept 2024" data-fr="ML pour l'Observation de la Terre | Sept 2024">ML for Earth Observation | Sept 2024</strong></p>
-                    </div>
-                    <div class="project-body">
-                        <p data-en="Advanced Machine Learning Techniques for Earth Observation applications and satellite data analysis." data-fr="Techniques avancées de Machine Learning pour les applications d'observation de la Terre et l'analyse de données satellitaires.">Advanced Machine Learning Techniques for Earth Observation applications and satellite data analysis.</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3><i class="fas fa-award"></i> <span data-en="Mastercard Foundation Scholar" data-fr="Boursier de la Fondation Mastercard">Mastercard Foundation Scholar</span></h3>
-                        <p><strong data-en="AIMS Cameroon | Aug 2023" data-fr="AIMS Cameroun | Août 2023">AIMS Cameroon | Aug 2023</strong></p>
-                    </div>
-                    <div class="project-body">
-                        <p data-en="Selected as a scholar for excellence in academic achievement and leadership potential." data-fr="Sélectionné comme boursier pour l'excellence en réalisations académiques et le potentiel de leadership.">Selected as a scholar for excellence in academic achievement and leadership potential.</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3><i class="fas fa-star"></i> <span data-en="Excellence Prize" data-fr="Prix d'Excellence">Excellence Prize</span></h3>
-                        <p><strong data-en="Chad's Best Baccalaureate | Aug 2016" data-fr="Meilleurs Baccalauréats du Tchad | Août 2016">Chad's Best Baccalaureate | Aug 2016</strong></p>
-                    </div>
-                    <div class="project-body">
-                        <p data-en="Recognized as one of Chad's best Baccalaureate graduates for outstanding academic performance." data-fr="Reconnu comme l'un des meilleurs diplômés du Baccalauréat du Tchad pour des performances académiques exceptionnelles.">Recognized as one of Chad's best Baccalaureate graduates for outstanding academic performance.</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3><i class="fas fa-lightbulb"></i> <span data-en="Winner - New AIMS Slogan" data-fr="Gagnant - Nouveau Slogan AIMS">Winner - New AIMS Slogan</span></h3>
-                        <p><strong data-en="Mar 2024" data-fr="Mars 2024">Mar 2024</strong></p>
-                    </div>
-                    <div class="project-body">
-                        <p data-en="Member of the team winning slogan: 'In Africa's Youth, the Future of Science'" data-fr="Membre de l'equipe gagnante du slogan: 'Dans la jeunesse africaine, l'avenir de la science'">Created the winning slogan: "In Africa's Youth, the Future of Science"</p>
-                    </div>
-                </div>
-            </div>
+        <div class="skill-block">
+          <div class="skill-block-icon"><i class="fas fa-tools"></i></div>
+          <h3 data-en="Tools & Platforms" data-fr="Outils & Plateformes">Tools & Platforms</h3>
+          <div class="skill-chips">
+            <span>Docker</span><span>MLflow</span><span>Airflow</span>
+            <span>AWS</span><span>MySQL</span><span>Flask</span>
+            <span>PowerBI</span><span>GitHub</span><span>Postman</span><span>ODK</span>
+          </div>
         </div>
-    </section>
-
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in" data-en="Connect with Me" data-fr="Connectez-vous avec Moi">Connect with Me</h2>
-            <div class="contact-info fade-in">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <h3 data-en="Email (UM6P)" data-fr="Email (UM6P)">Email (UM6P)</h3>
-                    <p><a href="mailto:batbaina.guikoura@um6p.ma" style="color: #667eea;">batbaina.guikoura@um6p.ma</a></p>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <h3 data-en="Email (AIMS)" data-fr="Email (AIMS)">Email (AIMS)</h3>
-                    <p><a href="mailto:batbaina.guikoura@aims-cameroon.org" style="color: #667eea;">batbaina.guikoura@aims-cameroon.org</a></p>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <h3 data-en="Phone" data-fr="Téléphone">Phone</h3>
-                    <p>+212 614 004 540</p>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3 data-en="Location" data-fr="Localisation">Location</h3>
-                    <p data-en="Rabat, Morocco" data-fr="Rabat, Maroc">Rabat, Morocco</p>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <h3>LinkedIn</h3>
-                    <p><a href="https://linkedin.com/in/batbaina-guikoura" target="_blank" style="color: #667eea;">batbaina-guikoura</a></p>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-github"></i>
-                    <h3>GitHub</h3>
-                    <p><a href="https://github.com/batbaina" target="_blank" style="color: #667eea;">github.com/batbaina</a></p>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-globe"></i>
-                    <h3>Numerica Bridge</h3>
-                    <p><a href="https://www.numericabridge.com/" target="_blank" style="color: #667eea;">www.numericabridge.com</a></p>
-                </div>
-            </div>
+        <div class="skill-block skill-block--accent">
+          <div class="skill-block-icon"><i class="fas fa-globe"></i></div>
+          <h3 data-en="Human Languages" data-fr="Langues Humaines">Human Languages</h3>
+          <div class="lang-bars">
+            <div class="lang-bar"><span>English</span><div class="bar"><div class="bar-fill" style="width:90%"></div></div></div>
+            <div class="lang-bar"><span>French</span><div class="bar"><div class="bar-fill" style="width:95%"></div></div></div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <div class="container">
-            <p data-en="Dedicated to using technology for positive social impact." data-fr="Dévoué à utiliser la technologie pour un impact social positif.">Dedicated to using technology for positive social impact.</p>
-            <p data-en="© 2025 Batbaina Guikoura. All rights reserved." data-fr="© 2025 Batbaina Guikoura. Tous droits réservés.">&copy; 2025 Batbaina Guikoura. All rights reserved.</p>
-            <div style="margin-top: 2rem;">
-                <a href="https://github.com/batbaina" target="_blank" style="color: #ffd700; margin: 0 1rem; font-size: 1.5rem;">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://linkedin.com/in/batbaina-guikoura" target="_blank" style="color: #ffd700; margin: 0 1rem; font-size: 1.5rem;">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="mailto:batbaina.guikoura@um6p.ma" style="color: #ffd700; margin: 0 1rem; font-size: 1.5rem;">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
+  <!-- EDUCATION -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow" data-en="Academic Path" data-fr="Parcours Académique">Academic Path</p>
+        <h2 class="section-heading" data-en="Education" data-fr="Formation">Education</h2>
+      </div>
+      <div class="edu-timeline">
+        <div class="edu-item reveal">
+          <div class="edu-marker">
+            <div class="edu-dot"></div>
+            <div class="edu-line"></div>
+          </div>
+          <div class="edu-card">
+            <span class="edu-year">2025 — Present</span>
+            <h3 data-en="PhD in Robotics, AI & Precision Agriculture" data-fr="Doctorat en Robotique, IA & Agriculture de Précision">PhD in Robotics, AI & Precision Agriculture</h3>
+            <p class="edu-inst">Mohammed VI Polytechnic University (UM6P) · Rabat, Morocco</p>
+            <p class="edu-desc" data-en="Doctoral research at the intersection of robotics, artificial intelligence, and precision agriculture — developing intelligent systems for sustainable food production." data-fr="Recherche doctorale à l'intersection de la robotique, de l'intelligence artificielle et de l'agriculture de précision.">Doctoral research at the intersection of robotics, artificial intelligence, and precision agriculture — developing intelligent systems for sustainable food production.</p>
+          </div>
         </div>
-    </footer>
+        <div class="edu-item reveal">
+          <div class="edu-marker">
+            <div class="edu-dot"></div>
+            <div class="edu-line"></div>
+          </div>
+          <div class="edu-card">
+            <span class="edu-year">Aug 2023 — Feb 2025</span>
+            <h3 data-en="Master's in Applied Mathematics (Data Science)" data-fr="Master en Mathématiques Appliquées (Data Science)">Master's in Applied Mathematics (Data Science)</h3>
+            <p class="edu-inst">AIMS Cameroon · GPA 3.32/4 · <em>Mastercard Foundation Scholar</em></p>
+            <p class="edu-desc" data-en="Supervised & Unsupervised ML, Deep Learning Algorithms, Statistical Inference." data-fr="ML Supervisé & Non-supervisé, Algorithmes de Deep Learning, Inférence Statistique.">Supervised & Unsupervised ML, Deep Learning Algorithms, Statistical Inference.</p>
+          </div>
+        </div>
+        <div class="edu-item reveal">
+          <div class="edu-marker">
+            <div class="edu-dot"></div>
+            <div class="edu-line"></div>
+          </div>
+          <div class="edu-card">
+            <span class="edu-year">Feb 2023</span>
+            <h3 data-en="Master's in Computer Science" data-fr="Master en Informatique">Master's in Computer Science</h3>
+            <p class="edu-inst">University of Ngaoundéré · GPA 3.18/4</p>
+            <p class="edu-desc" data-en="Advanced Algorithms, Software Engineering, System & Network Security, Optimization, Parallel Programming." data-fr="Algorithmes avancés, Génie logiciel, Sécurité des systèmes et réseaux, Optimisation, Programmation parallèle.">Advanced Algorithms, Software Engineering, System & Network Security, Optimization, Parallel Programming.</p>
+          </div>
+        </div>
+        <div class="edu-item reveal">
+          <div class="edu-marker">
+            <div class="edu-dot"></div>
+          </div>
+          <div class="edu-card">
+            <span class="edu-year">Jun 2020</span>
+            <h3 data-en="Bachelor's in Computer Science & Mathematics" data-fr="Licence en Informatique et Mathématiques">Bachelor's in Computer Science & Mathematics</h3>
+            <p class="edu-inst">University of Ngaoundéré · GPA 2.67/4</p>
+            <p class="edu-desc" data-en="Graph Theory, Algorithms, Cloud Computing, Linear Algebra, Probability Theory." data-fr="Théorie des graphes, Algorithmes, Cloud Computing, Algèbre linéaire, Théorie des probabilités.">Graph Theory, Algorithms, Cloud Computing, Linear Algebra, Probability Theory.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="static/script/script.js"></script>
-    
+  <!-- PROJECTS -->
+  <section id="projects" class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow" data-en="Work" data-fr="Travaux">Work</p>
+        <h2 class="section-heading" data-en="Projects & Research" data-fr="Projets & Recherche">Projects & Research</h2>
+      </div>
+      <div class="projects-grid">
+
+        <article class="project-card project-card--featured reveal">
+          <div class="project-tag" data-en="Current Research" data-fr="Recherche Actuelle">Current Research</div>
+          <h3 data-en="PhD — Robotics, AI & Precision Agriculture" data-fr="Doctorat — Robotique, IA & Agriculture de Précision">PhD — Robotics, AI & Precision Agriculture</h3>
+          <p class="project-org">UM6P · Rabat, Morocco · 2025 — Present</p>
+          <p data-en="Developing intelligent robotic systems at the nexus of AI and precision agriculture to enable sustainable, data-driven food production across Africa and beyond." data-fr="Développement de systèmes robotiques intelligents à la croisée de l'IA et de l'agriculture de précision pour une production alimentaire durable en Afrique et au-delà.">Developing intelligent robotic systems at the nexus of AI and precision agriculture to enable sustainable, data-driven food production across Africa and beyond.</p>
+          <div class="project-techs"><span>Robotics</span><span>Computer Vision</span><span>AI</span><span>Precision Agriculture</span></div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-tag" data-en="Internship" data-fr="Stage">Internship</div>
+          <h3>ICT Technology Development — IFAD</h3>
+          <p class="project-org">Mar 2025</p>
+          <p data-en="Automatic generation pipelines, LLM-based feature extraction, agentic AI architectures, data analytics, and ICT operations automation." data-fr="Pipelines de génération automatique, extraction de caractéristiques par LLM, architectures IA agentiques, analyse de données et automatisation des opérations TIC.">Automatic generation pipelines, LLM-based feature extraction, agentic AI architectures, data analytics, and ICT operations automation.</p>
+          <div class="project-techs"><span>LLMs</span><span>Agentic AI</span><span>Data Analytics</span></div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-tag" data-en="Internship" data-fr="Stage">Internship</div>
+          <h3>Diool Transaction Analysis API</h3>
+          <p class="project-org">Data Scientist Intern · Jul – Dec 2024</p>
+          <p data-en="ML models for user trend & pattern analysis from transaction data. Middleware RESTful APIs and CI/CD pipelines." data-fr="Modèles ML pour l'analyse des tendances et des modèles d'utilisateurs à partir des données de transactions. API RESTful middleware et pipelines CI/CD.">ML models for user trend & pattern analysis from transaction data. Middleware RESTful APIs and CI/CD pipelines.</p>
+          <div class="project-techs"><span>Machine Learning</span><span>RESTful API</span><span>CI/CD</span><span>Python</span></div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-tag" data-en="Master's Thesis" data-fr="Mémoire Master">Master's Thesis</div>
+          <h3 data-en="Autoencoder-based Plant Disease Detection" data-fr="Détection de Maladies par Autoencodeurs">Autoencoder-based Plant Disease Detection</h3>
+          <p class="project-org">Jun – Aug 2024 · <a href="http://dx.doi.org/10.13140/RG.2.2.17356.94083" target="_blank">View Publication ↗</a></p>
+          <p data-en="Anomaly-detection model for abnormal plant leaves using autoencoders. Won the Indaba X Chad Hackathon for Rice Disease Detection." data-fr="Modèle de détection d'anomalies pour les feuilles végétales anormales par autoencodeurs. Gagnant du Hackathon Indaba X Tchad.">Anomaly-detection model for abnormal plant leaves using autoencoders. Won the Indaba X Chad Hackathon for Rice Disease Detection.</p>
+          <div class="project-techs"><span>PyTorch</span><span>Autoencoders</span><span>Deep Learning</span><span>Computer Vision</span></div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-tag" data-en="Master's Thesis" data-fr="Mémoire Master">Master's Thesis</div>
+          <h3 data-en="Optimizing Crop Rotation Profit Margin" data-fr="Optimisation de la Rotation des Cultures">Optimizing Crop Rotation Profit Margin</h3>
+          <p class="project-org">Jul 2022 – Jan 2023 · <a href="http://dx.doi.org/10.13140/RG.2.2.28262.13129" target="_blank">View Publication ↗</a></p>
+          <p data-en="Mathematical modeling of resource dynamics under agricultural policy + genetic algorithm optimization of resource allocation." data-fr="Modélisation mathématique de la dynamique des ressources sous politiques agricoles + optimisation par algorithmes génétiques.">Mathematical modeling of resource dynamics under agricultural policy + genetic algorithm optimization of resource allocation.</p>
+          <div class="project-techs"><span>Genetic Algorithms</span><span>Optimization</span><span>Mathematical Modeling</span><span>Python</span></div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-tag" data-en="Startup" data-fr="Startup">Startup</div>
+          <h3>Numerica Bridge</h3>
+          <p class="project-org">Co-Founder & Promoter · <a href="https://numericabridge.com" target="_blank">numericabridge.com ↗</a></p>
+          <p data-en="A digitalization startup that trains and accompanies individuals and organizations through their digital transformation journey." data-fr="Une startup de digitalisation qui accompagne et forme les individus et organisations dans leur transformation numérique.">A digitalization startup that trains and accompanies individuals and organizations through their digital transformation journey.</p>
+          <div class="project-techs"><span>Digitalization</span><span>Consulting</span><span>Training</span><span>Business Dev</span></div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-tag" data-en="Volunteer" data-fr="Bénévole">Volunteer</div>
+          <h3 data-en="Limbe Municipality App" data-fr="Application de la Municipalité de Limbé">Limbe Municipality App</h3>
+          <p class="project-org">Cameroon · 2023</p>
+          <p data-en="A civic application improving public service delivery and citizen engagement for the city of Limbe, Cameroon." data-fr="Une application civique améliorant la prestation des services publics et l'engagement citoyen pour la ville de Limbé, Cameroun.">A civic application improving public service delivery and citizen engagement for the city of Limbe, Cameroon.</p>
+          <div class="project-techs"><span>Mobile Dev</span><span>Public Services</span><span>Civic Tech</span></div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow" data-en="Recognition" data-fr="Reconnaissance">Recognition</p>
+        <h2 class="section-heading" data-en="Achievements & Certifications" data-fr="Réalisations & Certifications">Achievements & Certifications</h2>
+      </div>
+      <div class="awards-grid">
+        <div class="award-card reveal">
+          <div class="award-icon"><i class="fas fa-trophy"></i></div>
+          <div class="award-body">
+            <span class="award-date">Oct 2024</span>
+            <h3 data-en="Winner — Indaba X Chad Hackathon" data-fr="Gagnant — Hackathon Indaba X Tchad">Winner — Indaba X Chad Hackathon</h3>
+            <p data-en="Rice disease detection: early-stage pyriculariose identification in Chad." data-fr="Détection précoce de pyriculariose du riz au Tchad.">"La détection précoce de pyriculariose du riz au Tchad"</p>
+          </div>
+        </div>
+        <div class="award-card reveal">
+          <div class="award-icon"><i class="fas fa-certificate"></i></div>
+          <div class="award-body">
+            <span class="award-date">Sept 2024</span>
+            <h3 data-en="Postman API Fundamentals — Student Expert" data-fr="Postman API Fundamentals — Expert Étudiant">Postman API Fundamentals — Student Expert</h3>
+            <p data-en="Certified in API development and testing." data-fr="Certifié en développement et test d'API.">Certified in API development and testing.</p>
+          </div>
+        </div>
+        <div class="award-card reveal">
+          <div class="award-icon"><i class="fas fa-satellite"></i></div>
+          <div class="award-body">
+            <span class="award-date">Sept 2024</span>
+            <h3>EO College — ML for Earth Observation</h3>
+            <p data-en="Advanced ML techniques for satellite data analysis." data-fr="Techniques ML avancées pour l'analyse de données satellitaires.">Advanced ML techniques for satellite data analysis.</p>
+          </div>
+        </div>
+        <div class="award-card reveal">
+          <div class="award-icon"><i class="fas fa-award"></i></div>
+          <div class="award-body">
+            <span class="award-date">Aug 2023</span>
+            <h3 data-en="Mastercard Foundation Scholar" data-fr="Boursier Mastercard Foundation">Mastercard Foundation Scholar</h3>
+            <p>AIMS Cameroon — Academic excellence & leadership.</p>
+          </div>
+        </div>
+        <div class="award-card reveal">
+          <div class="award-icon"><i class="fas fa-lightbulb"></i></div>
+          <div class="award-body">
+            <span class="award-date">Mar 2024</span>
+            <h3 data-en="Winner — AIMS New Slogan Competition" data-fr="Gagnant — Concours Nouveau Slogan AIMS">Winner — AIMS New Slogan Competition</h3>
+            <p>"In Africa's Youth, the Future of Science"</p>
+          </div>
+        </div>
+        <div class="award-card reveal">
+          <div class="award-icon"><i class="fas fa-star"></i></div>
+          <div class="award-body">
+            <span class="award-date">Aug 2016</span>
+            <h3 data-en="Excellence Prize — Chad's Best Baccalaureate" data-fr="Prix d'Excellence — Meilleur Baccalauréat du Tchad">Excellence Prize — Chad's Best Baccalaureate</h3>
+            <p data-en="Recognized among the top Baccalaureate graduates nationally." data-fr="Reconnu parmi les meilleurs diplômés du Baccalauréat nationalement.">Recognized among the top Baccalaureate graduates nationally.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow" data-en="Get In Touch" data-fr="Contactez-moi">Get In Touch</p>
+        <h2 class="section-heading" data-en="Let's build something meaningful." data-fr="Construisons quelque chose de significatif.">Let's build something meaningful.</h2>
+      </div>
+      <div class="contact-grid reveal">
+        <a href="mailto:batbaina.guikoura@um6p.ma" class="contact-card">
+          <i class="fas fa-envelope"></i>
+          <div><strong>UM6P Email</strong><span>batbaina.guikoura@um6p.ma</span></div>
+        </a>
+        <a href="mailto:batbaina.guikoura@aims-cameroon.org" class="contact-card">
+          <i class="fas fa-envelope"></i>
+          <div><strong>AIMS Email</strong><span>batbaina.guikoura@aims-cameroon.org</span></div>
+        </a>
+        <a href="tel:+212614004540" class="contact-card">
+          <i class="fas fa-phone"></i>
+          <div><strong data-en="Phone" data-fr="Téléphone">Phone</strong><span>+212 614 004 540</span></div>
+        </a>
+        <a href="https://linkedin.com/in/batbaina-guikoura" target="_blank" class="contact-card">
+          <i class="fab fa-linkedin"></i>
+          <div><strong>LinkedIn</strong><span>batbaina-guikoura</span></div>
+        </a>
+        <a href="https://github.com/batbaina" target="_blank" class="contact-card">
+          <i class="fab fa-github"></i>
+          <div><strong>GitHub</strong><span>github.com/batbaina</span></div>
+        </a>
+        <a href="https://www.numericabridge.com" target="_blank" class="contact-card">
+          <i class="fas fa-globe"></i>
+          <div><strong>Numerica Bridge</strong><span>numericabridge.com</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <span class="logo">BG<span class="logo-dot">.</span></span>
+      <p data-en="Dedicated to technology for positive social impact." data-fr="Dédié à la technologie pour un impact social positif.">Dedicated to technology for positive social impact.</p>
+      <p class="footer-copy">© 2025 Batbaina Guikoura</p>
+    </div>
+  </footer>
+
+  <script src="static/script/script.js"></script>
 </body>
 </html>

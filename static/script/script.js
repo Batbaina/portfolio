@@ -1,187 +1,205 @@
+/* ==========================================================
+   LANGUAGE SWITCHER
+   ========================================================== */
+let currentLanguage = 'en';
 
-        // Language switching functionality - Define globally
-        let currentLanguage = 'en';
-        
-        // Define switchLanguage function globally
-        window.switchLanguage = function(lang) {
-    currentLanguage = lang;
-    
-    // Update select value
-    const langSelect = document.querySelector('.lang-select');
-    if (langSelect) {
-        langSelect.value = lang;
+window.switchLanguage = function(lang) {
+  currentLanguage = lang;
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const text = el.getAttribute(lang === 'fr' ? 'data-fr' : 'data-en');
+    if (!text) return;
+    // If element has child elements, update only direct text nodes
+    if (el.children.length > 0) {
+      const textNodes = [...el.childNodes].filter(n => n.nodeType === Node.TEXT_NODE);
+      if (textNodes.length) textNodes[0].textContent = text;
+    } else {
+      el.textContent = text;
     }
-    
-    // Update all elements with data attributes
-    document.querySelectorAll('[data-en]').forEach(element => {
-        const key = lang === 'en' ? 'data-en' : 'data-fr';
-        const text = element.getAttribute(key);
-        if (text) {
-            if (element.children.length > 0) {
-                const textNodes = Array.from(element.childNodes).filter(node => node.nodeType === Node.TEXT_NODE);
-                if (textNodes.length > 0) {
-                    textNodes[0].textContent = text;
-                }
-            } else {
-                element.textContent = text;
-            }
-        }
-    });
-    
-    // Update navigation links
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        const enText = link.getAttribute('data-en');
-        const frText = link.getAttribute('data-fr');
-        if (enText && frText) {
-            link.textContent = lang === 'en' ? enText : frText;
-        }
-    });
-    
-    // Update button spans specifically
-    document.querySelectorAll('.btn span[data-en]').forEach(span => {
-        const enText = span.getAttribute('data-en');
-        const frText = span.getAttribute('data-fr');
-        if (enText && frText) {
-            span.textContent = lang === 'en' ? enText : frText;
-        }
-    });
-    
-    // Update skill category titles
-    document.querySelectorAll('.skill-category h3 span[data-en]').forEach(span => {
-        const enText = span.getAttribute('data-en');
-        const frText = span.getAttribute('data-fr');
-        if (enText && frText) {
-            span.textContent = lang === 'en' ? enText : frText;
-        }
-    });
+  });
 };
-        // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Load saved language preference (disabled for artifact)
-            // const savedLang = localStorage.getItem('preferredLanguage') || 'en';
-            // if (savedLang !== 'en') {
-            //     switchLanguage(savedLang);
-            // }
-        });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+/* ==========================================================
+   MOBILE MENU
+   ========================================================== */
+window.toggleMobileMenu = function() {
+  const links = document.getElementById('nav-links');
+  const btn = document.getElementById('hamburger');
+  links.classList.toggle('open');
+  btn.classList.toggle('open');
+};
 
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Mobile menu toggle (if needed)
-        const mobileMenuToggle = () => {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('active');
-        };
-
-        // Add some interactive hover effects
-        document.querySelectorAll('.project-card, .skill-category, .contact-item').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Typing effect for hero subtitle (optional enhancement)
-        const subtitle = document.querySelector('.hero h2');
-        const text = subtitle.textContent;
-        subtitle.textContent = '';
-        
-        let i = 0;
-        const typeWriter = () => {
-            if (i < text.length) {
-                subtitle.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 50);
-            }
-        };
-        
-        setTimeout(typeWriter, 1500);
-
-        // Add dynamic background particles (subtle effect)
-        const createParticle = () => {
-            const particle = document.createElement('div');
-            particle.style.cssText = `
-                position: absolute;
-                width: 4px;
-                height: 4px;
-                background: rgba(255, 215, 0, 0.3);
-                border-radius: 50%;
-                pointer-events: none;
-                animation: float 6s linear infinite;
-                top: 100vh;
-                left: ${Math.random() * 100}vw;
-            `;
-            
-            const floatKeyframes = `
-                @keyframes float {
-                    to {
-                        transform: translateY(-100vh) rotate(360deg);
-                        opacity: 0;
-                    }
-                }
-            `;
-            
-            if (!document.querySelector('#particle-styles')) {
-                const style = document.createElement('style');
-                style.id = 'particle-styles';
-                style.textContent = floatKeyframes;
-                document.head.appendChild(style);
-            }
-            
-            document.querySelector('.hero').appendChild(particle);
-            
-            setTimeout(() => {
-                particle.remove();
-            }, 6000);
-        };
-
-        // Create particles periodically
-        setInterval(createParticle, 2000);
-
-  function toggleMobileMenu() {
-    const navLinks = document.querySelector('.nav-links');
-    navLinks.classList.toggle('active');
-}
-
-// Fermer le menu mobile quand on clique sur un lien
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', function() {
-        const navLinks = document.querySelector('.nav-links');
-        if (navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-        }
+document.addEventListener('DOMContentLoaded', () => {
+  // Close mobile menu on link click
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('nav-links').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
     });
+  });
+
+  /* ========================================================
+     HEADER SCROLL STATE
+     ======================================================== */
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 30);
+  }, { passive: true });
+
+  /* ========================================================
+     HERO CANVAS — ANIMATED GRID / NEURAL DOT FIELD
+     ======================================================== */
+  const canvas = document.getElementById('hero-canvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let W, H, dots, mouse = { x: -9999, y: -9999 };
+    const DOT_COUNT = 120;
+    const MAX_DIST = 140;
+    const CYAN = '0,212,255';
+    const GOLD = '240,165,0';
+
+    function resize() {
+      W = canvas.width = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+      initDots();
+    }
+
+    function initDots() {
+      dots = Array.from({ length: DOT_COUNT }, () => ({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - .5) * .4,
+        vy: (Math.random() - .5) * .4,
+        r: Math.random() * 1.5 + .5,
+      }));
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+
+      // Move dots
+      dots.forEach(d => {
+        d.x += d.vx;
+        d.y += d.vy;
+        if (d.x < 0 || d.x > W) d.vx *= -1;
+        if (d.y < 0 || d.y > H) d.vy *= -1;
+      });
+
+      // Draw connections
+      for (let i = 0; i < dots.length; i++) {
+        for (let j = i + 1; j < dots.length; j++) {
+          const dx = dots[i].x - dots[j].x;
+          const dy = dots[i].y - dots[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < MAX_DIST) {
+            const alpha = (1 - dist / MAX_DIST) * 0.18;
+            ctx.beginPath();
+            ctx.moveTo(dots[i].x, dots[i].y);
+            ctx.lineTo(dots[j].x, dots[j].y);
+            ctx.strokeStyle = `rgba(${CYAN},${alpha})`;
+            ctx.lineWidth = .8;
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Draw dots (glow near mouse)
+      dots.forEach(d => {
+        const mx = d.x - mouse.x;
+        const my = d.y - mouse.y;
+        const md = Math.sqrt(mx * mx + my * my);
+        const near = md < 180;
+        const alpha = near ? .9 : .4;
+        const color = near ? GOLD : CYAN;
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${color},${alpha})`;
+        ctx.fill();
+      });
+
+      requestAnimationFrame(draw);
+    }
+
+    canvas.addEventListener('mousemove', e => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    });
+    canvas.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
+
+    window.addEventListener('resize', resize);
+    resize();
+    draw();
+  }
+
+  /* ========================================================
+     SCROLL REVEAL
+     ======================================================== */
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Animate bar-fills when they come into view
+        entry.target.querySelectorAll('.bar-fill').forEach(bar => {
+          bar.style.width = bar.getAttribute('data-width') || bar.style.width;
+        });
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // Store bar-fill widths as data attribute before zeroing them
+  document.querySelectorAll('.bar-fill').forEach(bar => {
+    bar.setAttribute('data-width', bar.style.width);
+    bar.style.width = '0';
+  });
+
+  /* ========================================================
+     SMOOTH SCROLLING
+     ======================================================== */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = 80;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  /* ========================================================
+     ACTIVE NAV HIGHLIGHT
+     ======================================================== */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  const activeObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const link = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+
+  sections.forEach(s => activeObs.observe(s));
+
+  /* ========================================================
+     HERO TITLE FADE-IN STAGGER
+     ======================================================== */
+  const heroEls = document.querySelectorAll(
+    '.hero-eyebrow, .hero-name, .hero-bio, .hero-cta, .hero-stats'
+  );
+  heroEls.forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = `opacity .8s ease ${i * 0.12}s, transform .8s ease ${i * 0.12}s`;
+    setTimeout(() => {
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, 100);
+  });
 });
